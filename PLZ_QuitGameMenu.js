@@ -6,11 +6,13 @@
  *
  * @param title
  * @desc Show in Title menu
- * @default on
+ * @type boolean
+ * @default true
  *
  * @param gameEnd
  * @desc Show in Game End menu
- * @default on
+ * @type boolean
+ * @default true
  */
 
 (function() {
@@ -20,7 +22,7 @@
         SceneManager.exit();
     };
 
-    if (parameters['title'].toLowerCase() === 'on') {
+    if (parameters['title']) {
         Window_TitleCommand.prototype.makeCommandList = (function(_super) {
             return function() {
                 _super.call(this);
@@ -36,7 +38,7 @@
         })(Scene_Title.prototype.createCommandWindow);
     }
 
-    if (parameters['gameEnd'].toLowerCase() === 'on') {
+    if (parameters['gameEnd']) {
         Window_GameEnd.prototype.makeCommandList = (function(_super) {
             return function() {
                 _super.call(this);

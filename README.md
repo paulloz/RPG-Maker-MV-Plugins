@@ -10,3 +10,7 @@ Can define precisely on which Actors/Enemies specific Items can be used.
 ### Pixel Perfection
 
 Make sure every image is loaded with `SCALE_MODE.NEAREST` in Pixi and set the the canvas image-rendering property to 'pixelated'.
+
+### Quit Game Menu
+
+Add a real Quit Game option to Title and/or Game End menus.

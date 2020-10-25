@@ -13,12 +13,13 @@
  */
 
 (function() {
-    var _Game_Action_testApply = Game_Action.prototype.testApply;
-    Game_Action.prototype.testApply = function(target) {
-        return _Game_Action_testApply.call(this, target)
-            && (!this.isItem() || this.hasItemAnyValidTargets(target));
-    };
-
+    Game_Action.prototype.testApply = (function(_super) {
+        return function(target) {
+            return _super.call(this, target)
+                && (!this.isItem() || this.hasItemAnyValidTargets(target));
+        };
+    })(Game_Action.prototype.testApply);
+    
     Game_Action.prototype.hasItemAnyValidTargets = function(target) {
         return (
             !this.item().meta['CanTarget'] || this.item().meta['CanTarget'].split(",").some(function(idx) {

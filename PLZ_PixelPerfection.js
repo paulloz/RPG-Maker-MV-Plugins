@@ -19,4 +19,11 @@
         }
     })(ImageManager.loadBitmap);
 
+    Graphics._updateRealScale = (function(_super) {
+        return function() {
+            _super.call(this);
+            this._realScale = parseInt(this._realScale);
+        };
+    })(Graphics._updateRealScale);
+
 })();
